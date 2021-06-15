@@ -59,9 +59,9 @@
 
   .closebtn {
     position: absolute;
-    top: 0.8%;
+    top: -0.2%;
     right: 12%;
-    font-size: 50px;
+    font-size: 60px;
     color: #2b4eec;
     text-decoration: none;
   }
