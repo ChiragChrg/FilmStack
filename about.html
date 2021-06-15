@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About | FilmStack</title>
     <link rel="stylesheet" href="./css/about.css" />
+    <link rel="stylesheet" href="./css/mabout.css" />
     <script src="/js/icon.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="/assets/favicon.ico" />
     <link
@@ -23,12 +24,14 @@
       </div>
 
       <div class="navmain">
-        <button class="openbtn" onclick="opennav()">#</button>
+        <button class="openbtn" onclick="openNav()">
+          <i class="fad fa-bars"></i>
+        </button>
       </div>
 
       <div class="nav">
         <div class="sidebar" id="sidepanel">
-          <a href="javascript:void(0)" onclick="closenav()" class="closebtn"
+          <a href="javascript:void(0)" onclick="closeNav()" class="closebtn"
             >x</a
           >
           <ul>
@@ -72,5 +75,15 @@
 
       <p>&#169; Copyright 2021 ChiragChrg</p>
     </footer>
+
+    <script>
+      function openNav() {
+        document.getElementById("sidepanel").style.width = "50%";
+      }
+
+      function closeNav() {
+        document.getElementById("sidepanel").style.width = "0%";
+      }
+    </script>
   </body>
 </html>

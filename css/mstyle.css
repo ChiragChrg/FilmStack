@@ -1,11 +1,10 @@
-@media (min-width: 750px) {
+@media (max-width: 749px) {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Quicksand;
   }
-
   body {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -17,10 +16,11 @@
   }
 
   header {
+    position: relative;
+    z-index: 10;
     display: flex;
     padding: 2%;
     width: 100%;
-    justify-content: space-between;
     background-color: rgb(43, 78, 236);
     backdrop-filter: blur(10px);
   }
@@ -29,66 +29,91 @@
     outline: none;
     display: flex;
     text-decoration: none;
+    font-size: 15px;
     color: #fff;
+    padding: 2%;
   }
 
   .logo a p {
-    font-size: 40px;
+    font-size: 30px;
     letter-spacing: 1px;
-    padding-top: 2%;
+    padding-top: 6%;
   }
 
-  .navmain,
+  .navmain {
+    padding: 5px 8px;
+    width: 100%;
+  }
+
+  .openbtn {
+    position: relative;
+    float: right;
+    width: 40px;
+    outline-style: none;
+    border-style: none;
+    background: none;
+    font-size: 35px;
+    font-weight: 900;
+    color: #fff;
+  }
+
   .closebtn {
-    display: none;
+    position: absolute;
+    top: 0.8%;
+    right: 12%;
+    font-size: 50px;
+    color: #2b4eec;
+    text-decoration: none;
   }
 
-  .nav {
-    position: absolute;
+  .sidebar {
+    height: 100vh;
+    width: 0%;
+    position: fixed;
+    /* z-index: 10; */
+    top: 0;
     right: 0;
+    overflow-x: hidden;
+    background-color: #fff;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding-top: 60px;
+    transition: 0.5s;
   }
 
   .sidebar ul {
-    list-style-type: none;
+    list-style: none;
   }
 
   .sidebar ul li {
-    padding: 13px 10px;
+    padding-top: 60px;
   }
 
   .sidebar ul li a {
-    margin: 0 10px;
-    padding: 6px 25px;
+    padding: 10px 0px 15px 0px;
+    text-align: center;
     text-decoration: none;
+    font-size: 25px;
+    font-weight: 900;
+    color: #2b4eec;
+    display: block;
+    transition: 0.5s;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar a.active {
     color: #fff;
-    border: 1.5px solid #fff;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    transition: 0.3s ease-in-out;
-  }
-
-  .sidebar ul li a.active {
-    background-color: #fff;
-    color: rgb(43, 78, 236);
-    border-radius: 0px 55px 10px 35px;
-  }
-
-  .sidebar ul li a:hover {
-    background-color: #fff;
-    color: rgb(43, 78, 236);
-    border-radius: 0px 55px 10px 35px;
+    background-color: #2b4eec;
   }
 
   .content {
     min-height: calc(100vh - 37vh);
+    z-index: -1;
   }
 
   #searchbar {
-    z-index: 1;
+    z-index: 5;
     text-align: center;
-    padding: 1.5% 0 3% 0;
+    padding: 6% 0 4% 0;
     position: sticky;
     top: 0;
     /* box-shadow: 10px 0 0 0 50px 0 rgb(43, 78, 236); */
@@ -107,12 +132,17 @@
   #searchbar input {
     border-style: none;
     outline: none;
-    padding: 0.8% 10%;
+    padding: 1.5% 12%;
     text-align: center;
     font-size: 16px;
     /* background-color: red; */
     border-radius: 50px;
   }
+
+  /* .container {
+    position: relative;
+    z-index: -1;
+  } */
 
   .cards {
     margin: 2%;
@@ -135,7 +165,7 @@
   .card10 {
     border-radius: 5px;
     padding: 10%;
-    margin: 5%;
+    margin: 10%;
     text-align: center;
     transition: 0.3s ease-in-out;
     display: flex;
@@ -215,28 +245,28 @@
   }
 
   .poster {
-    grid-column: 1;
-    grid-row: 1 / span 4;
+    grid-column: 1 / span 4;
+    grid-row: 1;
     padding: 2%;
     margin: 10px;
   }
 
   .poster img {
-    width: 100%;
+    width: 50%;
     height: auto;
   }
 
   .title {
-    grid-column: 2 / span 2;
-    grid-row: 1;
+    grid-column: 1 / span 2;
+    grid-row: 2;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
   }
 
   .rated {
-    grid-column: 4;
-    grid-row: 1;
+    grid-column: 3;
+    grid-row: 2;
     /* background-color: rgb(211, 12, 12); */
     padding: 2%;
     margin: 10px;
@@ -250,81 +280,81 @@
   }
 
   .ratings {
-    grid-column: 2;
-    grid-row: 2;
-    /* background-color: #d4d4d4; */
-    padding: 2%;
-    margin: 10px;
-  }
-  .year {
-    grid-column: 3;
-    grid-row: 2;
-    /* background-color: #d4d4d4; */
-    padding: 2%;
-    margin: 10px;
-  }
-  .release {
-    grid-column: 4;
-    grid-row: 2;
-    /* background-color: #d4d4d4; */
-    padding: 2%;
-    margin: 10px;
-  }
-  .director {
-    grid-column: 2 / span 3;
+    grid-column: 1;
     grid-row: 3;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
   }
-  .writer {
-    grid-column: 2 / span 3;
+  .year {
+    grid-column: 2;
+    grid-row: 3;
+    /* background-color: #d4d4d4; */
+    padding: 2%;
+    margin: 10px;
+  }
+  .release {
+    grid-column: 3;
+    grid-row: 3;
+    /* background-color: #d4d4d4; */
+    padding: 2%;
+    margin: 10px;
+  }
+  .director {
+    grid-column: 1 / span 3;
     grid-row: 4;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
   }
-  .genre {
-    grid-column: 1 / span 2;
+  .writer {
+    grid-column: 1 / span 3;
     grid-row: 5;
+    /* background-color: #d4d4d4; */
+    padding: 2%;
+    margin: 10px;
+  }
+  .genre {
+    grid-column: 1;
+    grid-row: 6;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
     text-align: center;
   }
   .lang {
-    grid-column: 3;
-    grid-row: 5;
+    grid-column: 2;
+    grid-row: 6;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
   }
   .country {
-    grid-column: 4;
-    grid-row: 5;
+    grid-column: 3;
+    grid-row: 6;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
   }
   .actors {
-    grid-column: 1 / span 4;
-    grid-row: 6;
-    /* background-color: #d4d4d4; */
-    padding: 2%;
-    margin: 10px;
-    text-align: left;
-  }
-  .plot {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 3;
     grid-row: 7;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;
     text-align: left;
   }
-  .awards {
-    grid-column: 1 / span 4;
+  .plot {
+    grid-column: 1 / span 3;
     grid-row: 8;
+    /* background-color: #d4d4d4; */
+    padding: 2%;
+    margin: 10px;
+    text-align: left;
+  }
+  .awards {
+    grid-column: 1 / span 3;
+    grid-row: 9;
     /* background-color: #d4d4d4; */
     padding: 2%;
     margin: 10px;

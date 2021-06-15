@@ -126,25 +126,38 @@ function SearchData(query) {
         Search.value = "";
       }
 
-      // Hiding dashinfo & displaying search result
       SrchLoad.style.visibility = "hidden";
       SrchInfo.style.display = "grid";
       Cards.style.display = "none";
-      Active.style.borderRadius = "50px";
-      Active.style.backgroundColor = "transparent";
-      Active.style.color = "#fff";
 
-      Active.addEventListener("mouseenter", e => {
-        Active.style.borderRadius = "0px 55px 10px 35px";
-        Active.style.backgroundColor = "#fff";
-        Active.style.color = "#000";
-      });
-      Active.addEventListener("mouseleave", e => {
-        Active.style.borderRadius = "50px";
-        Active.style.backgroundColor = "transparent";
-        Active.style.color = "#fff";
-      });
-      // ...
+      function screenSize(x) {
+        if (x.matches) {
+          // Hiding dashinfo & displaying search result
+
+          Active.style.borderRadius = "50px";
+          Active.style.backgroundColor = "transparent";
+          Active.style.color = "#fff";
+
+          Active.addEventListener("mouseenter", e => {
+            Active.style.borderRadius = "0px 55px 10px 35px";
+            Active.style.backgroundColor = "#fff";
+            Active.style.color = "#000";
+          });
+          Active.addEventListener("mouseleave", e => {
+            Active.style.borderRadius = "50px";
+            Active.style.backgroundColor = "transparent";
+            Active.style.color = "#fff";
+          });
+          // ...
+        } else {
+          Active.style.backgroundColor = "#2b4eec";
+          Active.style.color = "#fff";
+        }
+      }
+      var x = window.matchMedia("(min-width: 750px)");
+      screenSize(x);
+      // x.addListener(screenSize);
+      x.addEventListener("change", screenSize);
 
       let title = data.Title;
       let year = data.Year;
