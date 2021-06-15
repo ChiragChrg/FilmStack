@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<link lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Stack</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="/js/icon.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Quicksand&amp;display=swap"
+    />
+  </head>
+
+  <body>
+    <div class="searchload"><img class="sLoading" src="/assets/fsico.png" alt="Loading"></div>
+    
+    <header>
+      <div class="logo">
+        <a href="https://filmstack.netfily.app">
+          <i class="fal fa-camera-movie fa-3x"></i>
+          <p>&nbsp;FilmStack</p>
+        </a>
+      </div>
+
+      <div class="navmain">
+        <button class="openbtn" onclick="opennav()">#</button>
+      </div>
+
+      <div class="nav">
+        <div class="sidebar" id="sidepanel">
+          <a href="javascript:void(0)" onclick="closenav()" class="closebtn"
+            >x</a
+          >
+          <ul>
+            <li>
+              <a class="active" href="#">Home</a>
+              <a href="./about.html">About</a>
+              <a href="https://devbase.netlify.app">DevBase</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div id="searchbar">
+        <input
+          type="text"
+          value=""
+          placeholder="Search Film"
+          onfocus="this.placeholder=''"
+          onblur="this.placeholder='Search Film'"
+        />
+      </div>
+  
+      <div class="container">
+        <div class="cards">
+          <div class="card1"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card2"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card3"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card4"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card5"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card6"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card7"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card8"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card9"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+          <div class="card10"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+        </div>
+
+
+  
+        <div class="searchInfo">
+          <div class="poster">1</div>
+          <div class="title">2</div>
+          <div class="rated">3</div>
+          <div class="ratings">4</div>
+          <div class="year">5</div>
+          <div class="release">6</div>
+          <div class="director">7</div>
+          <div class="writer">8</div>
+          <div class="genre">9</div>
+          <div class="lang">10</div>
+          <div class="country">11</div>
+          <div class="actors">12</div>
+          <div class="plot">13</div>
+          <div class="awards">14</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="social">
+        <a href="https://www.facebook.com/ChiragChrg" id="f" target="_blank">
+          <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="https://www.instagram.com/chiragchrg/" id="i" target="_blank">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+        <a href="https://twitter.com/ChiragChrg1" id="t" target="_blank">
+          <i class="fab fa-twitter fa-2x"></i>
+        </a>
+      </div>
+
+      <p>&#169; Copyright 2021 ChiragChrg</p>
+    </footer>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
