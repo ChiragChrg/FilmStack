@@ -131,6 +131,8 @@ function SearchData(query) {
         // console.log("error desu");
         console.log(data.Error);
         alert(" ' " + query + " ' " + data.Error);
+        SrchLoad.style.visibility = "hidden";
+        return;
       } else {
         // console.log("pong");
         // Search.value = "";
@@ -207,7 +209,7 @@ function SearchData(query) {
     .catch(() => {
       console.log("Invalid Search !");
       alert(
-        `Error while connecting to our Servers : ( \nTry Reloading the Page`
+        `Movie information is currently unavailable. \nWe are working on this.`
       );
       SrchLoad.style.visibility = "hidden";
     });
