@@ -33,6 +33,15 @@ const Actors = document.querySelector(".actors");
 const Plot = document.querySelector(".plot");
 const Awards = document.querySelector(".awards");
 
+// Mobile Nav
+function openNav() {
+  document.getElementById("sidepanel").style.width = "50%";
+}
+
+function closeNav() {
+  document.getElementById("sidepanel").style.width = "0%";
+}
+
 // Dashboard Info Cards
 async function dashinfo() {
   SrchInfo.style.display = "none";
@@ -121,14 +130,14 @@ function SearchData(query) {
       if (data.Response == "False") {
         // console.log("error desu");
         console.log(data.Error);
+        alert(" ' " + query + " ' " + data.Error);
       } else {
         // console.log("pong");
-        Search.value = "";
+        // Search.value = "";
+        SrchLoad.style.visibility = "hidden";
+        SrchInfo.style.display = "grid";
+        Cards.style.display = "none";
       }
-
-      SrchLoad.style.visibility = "hidden";
-      SrchInfo.style.display = "grid";
-      Cards.style.display = "none";
 
       function screenSize(x) {
         if (x.matches) {
@@ -197,6 +206,10 @@ function SearchData(query) {
     })
     .catch(() => {
       console.log("Invalid Search !");
+      alert(
+        `Error while connecting to our Servers : ( \nTry Reloading the Page`
+      );
+      SrchLoad.style.visibility = "hidden";
     });
 }
 
