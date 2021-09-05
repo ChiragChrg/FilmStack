@@ -45,9 +45,9 @@ function closeNav() {
 // Dashboard Info Cards
 async function dashinfo() {
   SrchInfo.style.display = "none";
-  let d1 = "Mugen Train";
-  let d2 = "Avatar";
-  let d3 = "Avengers endgame";
+  let d1 = "Avatar";
+  let d2 = "Avengers endgame";
+  let d3 = "Joker";
   let d4 = "Bad Boys for life";
   let d5 = "Dolittle";
   let d6 = "Shock wave 2";
