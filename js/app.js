@@ -1,21 +1,23 @@
 const API = 34878906;
+const dAPI = `https://api.themoviedb.org/3/trending/all/week?api_key=a0b28357cbdc328421290257b579b040`;
 const Search = document.querySelector("#searchbar input");
 const Active = document.querySelector(".active");
-const SrchInfo = document.querySelector(".searchInfo");
+const MovieInfo = document.querySelector(".movieInfo");
 const SrchLoad = document.querySelector(".searchload");
 const Cards = document.querySelector(".cards");
+const Loader = document.querySelector(".loader");
 
 // Dashboard initialize
-const Card1 = document.querySelector(".card1");
-const Card2 = document.querySelector(".card2");
-const Card3 = document.querySelector(".card3");
-const Card4 = document.querySelector(".card4");
-const Card5 = document.querySelector(".card5");
-const Card6 = document.querySelector(".card6");
-const Card7 = document.querySelector(".card7");
-const Card8 = document.querySelector(".card8");
-const Card9 = document.querySelector(".card9");
-const Card10 = document.querySelector(".card10");
+// const Card1 = document.querySelector(".card1");
+// const Card2 = document.querySelector(".card2");
+// const Card3 = document.querySelector(".card3");
+// const Card4 = document.querySelector(".card4");
+// const Card5 = document.querySelector(".card5");
+// const Card6 = document.querySelector(".card6");
+// const Card7 = document.querySelector(".card7");
+// const Card8 = document.querySelector(".card8");
+// const Card9 = document.querySelector(".card9");
+// const Card10 = document.querySelector(".card10");
 
 // Search Value initialize
 const Poster = document.querySelector(".poster");
@@ -33,77 +35,96 @@ const Actors = document.querySelector(".actors");
 const Plot = document.querySelector(".plot");
 const Awards = document.querySelector(".awards");
 
-// Mobile Nav
-function openNav() {
-  document.getElementById("sidepanel").style.width = "50%";
+//fetch list of trending movies from dAPI
+async function trending() {
+  let x = await fetch(dAPI);
+  let data = await x.json();
+  // console.log(data);
+  const Movies = data.results;
+  displayTrend(Movies);
 }
+window.onload = trending();
 
-function closeNav() {
-  document.getElementById("sidepanel").style.width = "0%";
+// Trending Card info
+function displayTrend(Movies) {
+  Loader.style.display = "none";
+
+  for (let i = 0; i < Movies.length; i++) {
+    // Some movie title Object names are diffrent so Sorting here..
+    if (Movies[i].original_title) {
+      var title = Movies[i].original_title;
+    } else if (Movies[i].name) {
+      var title = Movies[i].name;
+    }
+
+    Cards.innerHTML += `<div class="card">
+    <img class="cardimg" src="http://image.tmdb.org/t/p/w342/${Movies[i].poster_path}" alt="Poster" onclick="SearchData('${title}')"><h4>${title}</h4>
+    </div>`;
+  }
 }
 
 // Dashboard Info Cards
-async function dashinfo() {
-  SrchInfo.style.display = "none";
-  let d1 = "Avatar";
-  let d2 = "Avengers endgame";
-  let d3 = "Joker";
-  let d4 = "Bad Boys for life";
-  let d5 = "Dolittle";
-  let d6 = "Shock wave 2";
-  let d7 = "Tanhaji";
-  let d8 = "The Invisible Man";
-  let d9 = "Tenet";
-  let d10 = "Sonic the Hedgehog";
-  let x1 = await fetch(`https://www.omdbapi.com/?t=${d1}&apikey=${API}`);
-  let x2 = await fetch(`https://www.omdbapi.com/?t=${d2}&apikey=${API}`);
-  let x3 = await fetch(`https://www.omdbapi.com/?t=${d3}&apikey=${API}`);
-  let x4 = await fetch(`https://www.omdbapi.com/?t=${d4}&apikey=${API}`);
-  let x5 = await fetch(`https://www.omdbapi.com/?t=${d5}&apikey=${API}`);
-  let x6 = await fetch(`https://www.omdbapi.com/?t=${d6}&apikey=${API}`);
-  let x7 = await fetch(`https://www.omdbapi.com/?t=${d7}&apikey=${API}`);
-  let x8 = await fetch(`https://www.omdbapi.com/?t=${d8}&apikey=${API}`);
-  let x9 = await fetch(`https://www.omdbapi.com/?t=${d9}&apikey=${API}`);
-  let x10 = await fetch(`https://www.omdbapi.com/?t=${d10}&apikey=${API}`);
-  let data1 = await x1.json();
-  let data2 = await x2.json();
-  let data3 = await x3.json();
-  let data4 = await x4.json();
-  let data5 = await x5.json();
-  let data6 = await x6.json();
-  let data7 = await x7.json();
-  let data8 = await x8.json();
-  let data9 = await x9.json();
-  let data10 = await x10.json();
-  // console.log(data6);
-  const Movies = [
-    data1,
-    data2,
-    data3,
-    data4,
-    data5,
-    data6,
-    data7,
-    data8,
-    data9,
-    data10,
-  ];
-  displayData(Movies);
-}
-window.onload = dashinfo();
+// async function dashinfo() {
+//   MovieInfo.style.display = "none";
+//   let d1 = "Mugen Train";
+//   let d2 = "Avatar";
+//   let d3 = "Avengers endgame";
+//   let d4 = "Bad Boys for life";
+//   let d5 = "Dolittle";
+//   let d6 = "Shock wave 2";
+//   let d7 = "Tanhaji";
+//   let d8 = "The Invisible Man";
+//   let d9 = "Tenet";
+//   let d10 = "Sonic the Hedgehog";
+//   let x1 = await fetch(`https://www.omdbapi.com/?t=${d1}&apikey=${API}`);
+//   let x2 = await fetch(`https://www.omdbapi.com/?t=${d2}&apikey=${API}`);
+//   let x3 = await fetch(`https://www.omdbapi.com/?t=${d3}&apikey=${API}`);
+//   let x4 = await fetch(`https://www.omdbapi.com/?t=${d4}&apikey=${API}`);
+//   let x5 = await fetch(`https://www.omdbapi.com/?t=${d5}&apikey=${API}`);
+//   let x6 = await fetch(`https://www.omdbapi.com/?t=${d6}&apikey=${API}`);
+//   let x7 = await fetch(`https://www.omdbapi.com/?t=${d7}&apikey=${API}`);
+//   let x8 = await fetch(`https://www.omdbapi.com/?t=${d8}&apikey=${API}`);
+//   let x9 = await fetch(`https://www.omdbapi.com/?t=${d9}&apikey=${API}`);
+//   let x10 = await fetch(`https://www.omdbapi.com/?t=${d10}&apikey=${API}`);
+//   let data1 = await x1.json();
+//   let data2 = await x2.json();
+//   let data3 = await x3.json();
+//   let data4 = await x4.json();
+//   let data5 = await x5.json();
+//   let data6 = await x6.json();
+//   let data7 = await x7.json();
+//   let data8 = await x8.json();
+//   let data9 = await x9.json();
+//   let data10 = await x10.json();
+//   // console.log(data6);
+//   const Movies = [
+//     data1,
+//     data2,
+//     data3,
+//     data4,
+//     data5,
+//     data6,
+//     data7,
+//     data8,
+//     data9,
+//     data10,
+//   ];
+//   displayData(Movies);
+// }
+// window.onload = dashinfo();
 
-function displayData(Movies) {
-  Card1.innerHTML = `<img class="dashimg" src="${Movies[0].Poster}" alt="Poster" onclick="SearchData('${Movies[0].Title}')"><h4><br/>${Movies[0].Title}</h4>`;
-  Card2.innerHTML = `<img class="dashimg" src="${Movies[1].Poster}" alt="Poster" onclick="SearchData('${Movies[1].Title}')"><h4><br/>${Movies[1].Title}</h4>`;
-  Card3.innerHTML = `<img class="dashimg" src="${Movies[2].Poster}" alt="Poster" onclick="SearchData('${Movies[2].Title}')"><h4><br/>${Movies[2].Title}</h4>`;
-  Card4.innerHTML = `<img class="dashimg" src="${Movies[3].Poster}" alt="Poster" onclick="SearchData('${Movies[3].Title}')"><h4><br/>${Movies[3].Title}</h4>`;
-  Card5.innerHTML = `<img class="dashimg" src="${Movies[4].Poster}" alt="Poster" onclick="SearchData('${Movies[4].Title}')"><h4><br/>${Movies[4].Title}</h4>`;
-  Card6.innerHTML = `<img class="dashimg" src="${Movies[5].Poster}" alt="Poster" onclick="SearchData('${Movies[5].Title}')"><h4><br/>${Movies[5].Title}</h4>`;
-  Card7.innerHTML = `<img class="dashimg" src="${Movies[6].Poster}" alt="Poster" onclick="SearchData('${Movies[6].Title}')"><h4><br/>${Movies[6].Title}</h4>`;
-  Card8.innerHTML = `<img class="dashimg" src="${Movies[7].Poster}" alt="Poster" onclick="SearchData('${Movies[7].Title}')"><h4><br/>${Movies[7].Title}</h4>`;
-  Card9.innerHTML = `<img class="dashimg" src="${Movies[8].Poster}" alt="Poster" onclick="SearchData('${Movies[8].Title}')"><h4><br/>${Movies[8].Title}</h4>`;
-  Card10.innerHTML = `<img class="dashimg" src="${Movies[9].Poster}" alt="Poster" onclick="SearchData('${Movies[9].Title}')"><h4><br/>${Movies[9].Title}</h4>`;
-}
+// function displayData(Movies) {
+//   Card1.innerHTML = `<img class="dashimg" src="${Movies[0].Poster}" alt="Poster" onclick="SearchData('${Movies[0].Title}')"><h4><br/>${Movies[0].Title}</h4>`;
+//   Card2.innerHTML = `<img class="dashimg" src="${Movies[1].Poster}" alt="Poster" onclick="SearchData('${Movies[1].Title}')"><h4><br/>${Movies[1].Title}</h4>`;
+//   Card3.innerHTML = `<img class="dashimg" src="${Movies[2].Poster}" alt="Poster" onclick="SearchData('${Movies[2].Title}')"><h4><br/>${Movies[2].Title}</h4>`;
+//   Card4.innerHTML = `<img class="dashimg" src="${Movies[3].Poster}" alt="Poster" onclick="SearchData('${Movies[3].Title}')"><h4><br/>${Movies[3].Title}</h4>`;
+//   Card5.innerHTML = `<img class="dashimg" src="${Movies[4].Poster}" alt="Poster" onclick="SearchData('${Movies[4].Title}')"><h4><br/>${Movies[4].Title}</h4>`;
+//   Card6.innerHTML = `<img class="dashimg" src="${Movies[5].Poster}" alt="Poster" onclick="SearchData('${Movies[5].Title}')"><h4><br/>${Movies[5].Title}</h4>`;
+//   Card7.innerHTML = `<img class="dashimg" src="${Movies[6].Poster}" alt="Poster" onclick="SearchData('${Movies[6].Title}')"><h4><br/>${Movies[6].Title}</h4>`;
+//   Card8.innerHTML = `<img class="dashimg" src="${Movies[7].Poster}" alt="Poster" onclick="SearchData('${Movies[7].Title}')"><h4><br/>${Movies[7].Title}</h4>`;
+//   Card9.innerHTML = `<img class="dashimg" src="${Movies[8].Poster}" alt="Poster" onclick="SearchData('${Movies[8].Title}')"><h4><br/>${Movies[8].Title}</h4>`;
+//   Card10.innerHTML = `<img class="dashimg" src="${Movies[9].Poster}" alt="Poster" onclick="SearchData('${Movies[9].Title}')"><h4><br/>${Movies[9].Title}</h4>`;
+// }
 
 // Manual Search
 Search.addEventListener("keypress", setQuery);
@@ -115,6 +136,7 @@ function setQuery(evt) {
 
 function SearchData(query) {
   SrchLoad.style.visibility = "visible";
+
   async function getdata() {
     let x = await fetch(`https://www.omdbapi.com/?t=${query}&apikey=${API}`);
     let data = await x.json();
@@ -126,7 +148,7 @@ function SearchData(query) {
   }
 
   getdata()
-    .then(data => {
+    .then((data) => {
       if (data.Response == "False") {
         // console.log("error desu");
         console.log(data.Error);
@@ -137,7 +159,7 @@ function SearchData(query) {
         // console.log("pong");
         // Search.value = "";
         SrchLoad.style.visibility = "hidden";
-        SrchInfo.style.display = "grid";
+        MovieInfo.style.display = "grid";
         Cards.style.display = "none";
       }
 
@@ -149,12 +171,12 @@ function SearchData(query) {
           Active.style.backgroundColor = "transparent";
           Active.style.color = "#fff";
 
-          Active.addEventListener("mouseenter", e => {
+          Active.addEventListener("mouseenter", (e) => {
             Active.style.borderRadius = "0px 55px 10px 35px";
             Active.style.backgroundColor = "#fff";
             Active.style.color = "#000";
           });
-          Active.addEventListener("mouseleave", e => {
+          Active.addEventListener("mouseleave", (e) => {
             Active.style.borderRadius = "50px";
             Active.style.backgroundColor = "transparent";
             Active.style.color = "#fff";
@@ -216,7 +238,10 @@ function SearchData(query) {
 }
 
 function display(xData) {
-  // SrchInfo.style.backgroundImage = url("${xData.poster}");
+  MovieInfo.style.display = "block";
+  window.scrollTo(0, 0); //Go back to top of page
+
+  // MovieInfo.style.backgroundImage = url("${xData.poster}");
   Poster.innerHTML = `<img src="${xData.poster}" alt="${xData.title}" />`;
   Title.innerHTML = `<h2>${xData.title}</h2>`;
   Rated.innerHTML = `<h3>${xData.rated}</h3>`;
@@ -231,4 +256,11 @@ function display(xData) {
   Actors.innerHTML = `<h4>Actors: <br/> ${xData.actors}</h4>`;
   Plot.innerHTML = `<h4>Plot: <br/> ${xData.plot}</h4>`;
   Awards.innerHTML = `<h4>Awards: <br/>${xData.awards}</h4>`;
+}
+
+//Back Button to Dashboard from Movie Info
+function goback() {
+  MovieInfo.style.display = "none";
+  Cards.style.display = "grid";
+  window.scrollTo(0, 0);
 }

@@ -57,35 +57,45 @@
       </div>
   
       <div class="container">
-        <div class="cards">
-          <div class="card1"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card2"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card3"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card4"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card5"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card6"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card7"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card8"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card9"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
-          <div class="card10"><img class="loading" src="/assets/loading.png" alt="Loading"></div>
+        <div class="loader">
+          <script>
+            var Loading = document.querySelector(".loader");
+            for(let i = 0; i < 10; i++){
+              Loading.innerHTML += `<div class="load">
+                  <img class="loading" src="/assets/loading.png" alt="Loading">
+              </div>`
+            }
+          </script>
         </div>
 
-        <div class="searchInfo">
-          <div class="poster">Poster</div>
-          <div class="title">Title</div>
-          <div class="rated">N/A Rated</div>
-          <div class="ratings">Ratings</div>
-          <div class="year">Year</div>
-          <div class="release">Release</div>
-          <div class="director">Director</div>
-          <div class="writer">Writer</div>
-          <div class="genre">Genre</div>
-          <div class="lang">Language</div>
-          <div class="country">Country</div>
-          <div class="actors">Actors</div>
-          <div class="plot">Plot</div>
-          <div class="awards">Awards</div>
+
+        <div class="cards">
+          <!-- All Top Movies shown here -->
         </div>
+
+        <div class="movieInfo" style="display: none;">
+          <div class="backbtn">
+            <button id="backbtn" onclick="goback()">Back</button>
+          </div>
+
+          <div class="searchInfo">
+            <div class="poster mInfo">Poster</div>
+            <div class="title mInfo">Title</div>
+            <div class="rated mInfo">N/A Rated</div>
+            <div class="ratings mInfo">Ratings</div>
+            <div class="year mInfo">Year</div>
+            <div class="release mInfo">Release</div>
+            <div class="director mInfo">Director</div>
+            <div class="writer mInfo">Writer</div>
+            <div class="genre mInfo">Genre</div>
+            <div class="lang mInfo">Language</div>
+            <div class="country mInfo">Country</div>
+            <div class="actors mInfo">Actors</div>
+            <div class="plot mInfo">Plot</div>
+            <div class="awards mInfo">Awards</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -105,6 +115,16 @@
       <p>&#169; Copyright 2021 ChiragChrg</p>
     </footer>
 
+    <script>
+      // Mobile Nav
+      function openNav() {
+        document.getElementById("sidepanel").style.width = "50%";
+      }
+
+      function closeNav() {
+        document.getElementById("sidepanel").style.width = "0%";
+      }
+    </script>
     <script src="./js/app.js"></script>
   </body>
 </html>

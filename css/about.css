@@ -21,7 +21,8 @@
     padding: 2%;
     width: 100%;
     justify-content: space-between;
-    background-color: rgb(43, 78, 236);
+    background-color: rgb(30, 144, 255);
+    /* background-color: rgb(30, 144, 255); */
     backdrop-filter: blur(10px);
   }
 
@@ -75,13 +76,13 @@
 
   .sidebar ul li a.active {
     background-color: #fff;
-    color: rgb(43, 78, 236);
+    color: rgb(30, 144, 255);
     border-radius: 0px 55px 10px 35px;
   }
 
   .sidebar ul li a:hover {
     background-color: #fff;
-    color: rgb(43, 78, 236);
+    color: rgb(30, 144, 255);
     border-radius: 0px 55px 10px 35px;
   }
 
@@ -94,8 +95,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 6% 30%;
-    padding: 2% 0;
+    margin: 6% 28%;
+    padding: 2%;
     transition: 0.4s ease-in-out;
   }
 
@@ -133,7 +134,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(14, 42, 164);
+    background-color: dodgerblue;
+    /* background-color: rgb(14, 42, 164); */
     padding: 2%;
   }
 
@@ -147,9 +149,10 @@
   }
 
   .social {
+    display: none;
     /* background-color: rgb(167, 22, 22); */
     padding: 1% 0;
-    display: flex;
+    /* display: flex; */
     justify-content: space-around;
     width: 60%;
   }
