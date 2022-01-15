@@ -7,18 +7,6 @@ const SrchLoad = document.querySelector(".searchload");
 const Cards = document.querySelector(".cards");
 const Loader = document.querySelector(".loader");
 
-// Dashboard initialize
-// const Card1 = document.querySelector(".card1");
-// const Card2 = document.querySelector(".card2");
-// const Card3 = document.querySelector(".card3");
-// const Card4 = document.querySelector(".card4");
-// const Card5 = document.querySelector(".card5");
-// const Card6 = document.querySelector(".card6");
-// const Card7 = document.querySelector(".card7");
-// const Card8 = document.querySelector(".card8");
-// const Card9 = document.querySelector(".card9");
-// const Card10 = document.querySelector(".card10");
-
 // Search Value initialize
 const Poster = document.querySelector(".poster");
 const Title = document.querySelector(".title");
@@ -63,69 +51,6 @@ function displayTrend(Movies) {
   }
 }
 
-// Dashboard Info Cards
-// async function dashinfo() {
-//   MovieInfo.style.display = "none";
-//   let d1 = "Mugen Train";
-//   let d2 = "Avatar";
-//   let d3 = "Avengers endgame";
-//   let d4 = "Bad Boys for life";
-//   let d5 = "Dolittle";
-//   let d6 = "Shock wave 2";
-//   let d7 = "Tanhaji";
-//   let d8 = "The Invisible Man";
-//   let d9 = "Tenet";
-//   let d10 = "Sonic the Hedgehog";
-//   let x1 = await fetch(`https://www.omdbapi.com/?t=${d1}&apikey=${API}`);
-//   let x2 = await fetch(`https://www.omdbapi.com/?t=${d2}&apikey=${API}`);
-//   let x3 = await fetch(`https://www.omdbapi.com/?t=${d3}&apikey=${API}`);
-//   let x4 = await fetch(`https://www.omdbapi.com/?t=${d4}&apikey=${API}`);
-//   let x5 = await fetch(`https://www.omdbapi.com/?t=${d5}&apikey=${API}`);
-//   let x6 = await fetch(`https://www.omdbapi.com/?t=${d6}&apikey=${API}`);
-//   let x7 = await fetch(`https://www.omdbapi.com/?t=${d7}&apikey=${API}`);
-//   let x8 = await fetch(`https://www.omdbapi.com/?t=${d8}&apikey=${API}`);
-//   let x9 = await fetch(`https://www.omdbapi.com/?t=${d9}&apikey=${API}`);
-//   let x10 = await fetch(`https://www.omdbapi.com/?t=${d10}&apikey=${API}`);
-//   let data1 = await x1.json();
-//   let data2 = await x2.json();
-//   let data3 = await x3.json();
-//   let data4 = await x4.json();
-//   let data5 = await x5.json();
-//   let data6 = await x6.json();
-//   let data7 = await x7.json();
-//   let data8 = await x8.json();
-//   let data9 = await x9.json();
-//   let data10 = await x10.json();
-//   // console.log(data6);
-//   const Movies = [
-//     data1,
-//     data2,
-//     data3,
-//     data4,
-//     data5,
-//     data6,
-//     data7,
-//     data8,
-//     data9,
-//     data10,
-//   ];
-//   displayData(Movies);
-// }
-// window.onload = dashinfo();
-
-// function displayData(Movies) {
-//   Card1.innerHTML = `<img class="dashimg" src="${Movies[0].Poster}" alt="Poster" onclick="SearchData('${Movies[0].Title}')"><h4><br/>${Movies[0].Title}</h4>`;
-//   Card2.innerHTML = `<img class="dashimg" src="${Movies[1].Poster}" alt="Poster" onclick="SearchData('${Movies[1].Title}')"><h4><br/>${Movies[1].Title}</h4>`;
-//   Card3.innerHTML = `<img class="dashimg" src="${Movies[2].Poster}" alt="Poster" onclick="SearchData('${Movies[2].Title}')"><h4><br/>${Movies[2].Title}</h4>`;
-//   Card4.innerHTML = `<img class="dashimg" src="${Movies[3].Poster}" alt="Poster" onclick="SearchData('${Movies[3].Title}')"><h4><br/>${Movies[3].Title}</h4>`;
-//   Card5.innerHTML = `<img class="dashimg" src="${Movies[4].Poster}" alt="Poster" onclick="SearchData('${Movies[4].Title}')"><h4><br/>${Movies[4].Title}</h4>`;
-//   Card6.innerHTML = `<img class="dashimg" src="${Movies[5].Poster}" alt="Poster" onclick="SearchData('${Movies[5].Title}')"><h4><br/>${Movies[5].Title}</h4>`;
-//   Card7.innerHTML = `<img class="dashimg" src="${Movies[6].Poster}" alt="Poster" onclick="SearchData('${Movies[6].Title}')"><h4><br/>${Movies[6].Title}</h4>`;
-//   Card8.innerHTML = `<img class="dashimg" src="${Movies[7].Poster}" alt="Poster" onclick="SearchData('${Movies[7].Title}')"><h4><br/>${Movies[7].Title}</h4>`;
-//   Card9.innerHTML = `<img class="dashimg" src="${Movies[8].Poster}" alt="Poster" onclick="SearchData('${Movies[8].Title}')"><h4><br/>${Movies[8].Title}</h4>`;
-//   Card10.innerHTML = `<img class="dashimg" src="${Movies[9].Poster}" alt="Poster" onclick="SearchData('${Movies[9].Title}')"><h4><br/>${Movies[9].Title}</h4>`;
-// }
-
 // Manual Search
 Search.addEventListener("keypress", setQuery);
 function setQuery(evt) {
@@ -166,7 +91,6 @@ function SearchData(query) {
       function screenSize(x) {
         if (x.matches) {
           // Hiding dashinfo & displaying search result
-
           Active.style.borderRadius = "50px";
           Active.style.backgroundColor = "transparent";
           Active.style.color = "#fff";
@@ -183,7 +107,7 @@ function SearchData(query) {
           });
           // ...
         } else {
-          Active.style.backgroundColor = "#2b4eec";
+          Active.style.backgroundColor = "#dodgerblue";
           Active.style.color = "#fff";
         }
       }
